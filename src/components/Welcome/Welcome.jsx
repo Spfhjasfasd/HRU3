@@ -44,12 +44,31 @@ const Navbar21 = styled(Navbar2, {
   top: `0px`,
 }));
 
+const T1 = styled('div', {
+  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
+})(({ data }) => ({
+  textAlign: `left`,
+  whiteSpace: `pre-wrap`,
+  color: `rgba(255, 255, 255, 1)`,
+  fontStyle: `normal`,
+  fontFamily: `Heebo`,
+  fontWeight: `400`,
+  fontSize: `20px`,
+  letterSpacing: `0px`,
+  textDecoration: `none`,
+  textTransform: `uppercase`,
+  position: `absolute`,
+  left: data.size === 'mobile' ? `155px` : `552px`,
+  top: data.size === 'mobile' ? `402px` : `410px`,
+}));
+
 function Welcome(props) {
   const { data } = useWelcome();
 
   return (
     <ScreenDesktop data={data}>
       <Navbar21 data={data} />
+      <T1 data={data}>{data.size === 'mobile' ? `trasd` : `t1`}</T1>
     </ScreenDesktop>
   );
 }
