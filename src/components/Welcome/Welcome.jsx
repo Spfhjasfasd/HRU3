@@ -14,43 +14,43 @@
 
 import React from 'react';
 import { styled } from '@mui/material/styles';
+import Navbar2 from 'src/components/Navbar2/Navbar2';
+import useWelcome from 'src/components/Welcome/useWelcome';
 
-const Property1Variant2 = styled('div')({
+const ScreenDesktop = styled('div', {
+  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
+})(({ data }) => ({
   backgroundColor: `rgba(0, 0, 0, 0.2)`,
   display: `flex`,
   position: `relative`,
   isolation: `isolate`,
   flexDirection: `row`,
   width: '100%',
-  height: `834px`,
+  height: data.size === 'mobile' ? `834px` : `731px`,
   justifyContent: `flex-start`,
   alignItems: `flex-start`,
   padding: `0px`,
   boxSizing: `border-box`,
   overflow: `hidden`,
-});
+}));
 
-const T1 = styled('div')({
-  textAlign: `left`,
-  whiteSpace: `pre-wrap`,
-  color: `rgba(255, 255, 255, 1)`,
-  fontStyle: `normal`,
-  fontFamily: `Heebo`,
-  fontWeight: `400`,
-  fontSize: `20px`,
-  letterSpacing: `0px`,
-  textDecoration: `none`,
-  textTransform: `uppercase`,
+const Navbar21 = styled(Navbar2, {
+  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
+})(({ theme, data }) => ({
+  width: data.size === 'mobile' ? `396px` : `1440px`,
+  height: data.size === 'mobile' ? 'unset' : `60px`,
   position: `absolute`,
-  left: `72px`,
-  top: `179px`,
-});
+  left: `0px`,
+  top: `0px`,
+}));
 
 function Welcome(props) {
+  const { data } = useWelcome();
+
   return (
-    <Property1Variant2>
-      <T1>{`T1`}</T1>
-    </Property1Variant2>
+    <ScreenDesktop data={data}>
+      <Navbar21 data={data} />
+    </ScreenDesktop>
   );
 }
 
