@@ -13,9 +13,7 @@
  **********************************************************************/
 
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import { styled } from '@mui/material/styles';
-import Navbar2 from 'src/components/Navbar2/Navbar2';
 
 const Property1Variant2 = styled('div')({
   backgroundColor: `rgba(0, 0, 0, 0.2)`,
@@ -32,20 +30,26 @@ const Property1Variant2 = styled('div')({
   overflow: `hidden`,
 });
 
-const Navbar21 = styled(Navbar2)(({ theme }) => ({
-  width: `396px`,
+const T1 = styled('div')({
+  textAlign: `left`,
+  whiteSpace: `pre-wrap`,
+  color: `rgba(255, 255, 255, 1)`,
+  fontStyle: `normal`,
+  fontFamily: `Heebo`,
+  fontWeight: `400`,
+  fontSize: `20px`,
+  letterSpacing: `0px`,
+  textDecoration: `none`,
+  textTransform: `uppercase`,
   position: `absolute`,
-  left: `0px`,
-  top: `0px`,
-}));
+  left: `72px`,
+  top: `179px`,
+});
 
 function Welcome(props) {
   return (
     <Property1Variant2>
-      <Helmet>
-        <title>Welcome</title>
-      </Helmet>
-      <Navbar21 />
+      <T1>{`T1`}</T1>
     </Property1Variant2>
   );
 }
