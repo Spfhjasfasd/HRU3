@@ -23,7 +23,7 @@ const ScreenDesktop = styled('div')({
   isolation: `isolate`,
   flexDirection: `row`,
   width: '100%',
-  height: `887px`,
+  height: '100vh',
   justifyContent: `flex-start`,
   alignItems: `flex-start`,
   padding: `0px`,
