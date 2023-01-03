@@ -34,7 +34,7 @@ const ScreenDesktop = styled('div')({
 });
 
 const Navbar21 = styled(Navbar2)(({ theme }) => ({
-  width: `1440px`,
+  width: `1920px`,
   height: `60px`,
   position: `absolute`,
   left: `0px`,
@@ -55,8 +55,8 @@ const Hrucoin = animated(
     lineHeight: `62px`,
     textTransform: `none`,
     position: `absolute`,
-    left: `554px`,
-    top: `356px`,
+    left: `794px`,
+    top: `402px`,
   })
 );
 
@@ -74,14 +74,14 @@ const OneBlockAtATime = animated(
     lineHeight: `62px`,
     textTransform: `none`,
     position: `absolute`,
-    left: `635px`,
-    top: `502px`,
+    left: `887px`,
+    top: `540px`,
   })
 );
 
 const Label = animated(
   styled('div')({
-    background: `linear-gradient(90deg, rgba(123, 97, 255, 1) 27.623125519423546%, rgba(254, 136, 136, 1) 89.6145617438896%)`,
+    background: `linear-gradient(90deg, rgba(123, 97, 255, 1) 27.623125519427568%, rgba(254, 136, 136, 1) 89.61456174389363%)`,
     borderRadius: `50px`,
     display: `flex`,
     position: `absolute`,
@@ -91,10 +91,8 @@ const Label = animated(
     alignItems: `center`,
     padding: `20px`,
     boxSizing: `border-box`,
-    width: `457px`,
-    height: `48px`,
-    left: `491px`,
-    top: `443px`,
+    left: `782px`,
+    top: `476px`,
   })
 );
 
