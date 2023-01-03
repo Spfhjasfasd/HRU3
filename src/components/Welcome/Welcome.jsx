@@ -17,31 +17,27 @@ import { styled } from '@mui/material/styles';
 import Navbar2 from 'src/components/Navbar2/Navbar2';
 import useWelcome from 'src/components/Welcome/useWelcome';
 
-const ScreenDesktop = styled('div', {
-  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
-})(({ data }) => ({
-  backgroundColor: `rgba(0, 0, 0, 0.2)`,
+const ScreenDesktop = styled('div')({
+  backgroundColor: `rgba(191, 38, 158, 1)`,
   display: `flex`,
   position: `relative`,
   isolation: `isolate`,
-  flexDirection: `row`,
-  width: '100%',
-  height: data.size === 'mobile' ? `834px` : `731px`,
+  flexDirection: `column`,
+  height: `782.5px`,
   justifyContent: `flex-start`,
-  alignItems: `flex-start`,
+  alignItems: `center`,
   padding: `0px`,
   boxSizing: `border-box`,
   overflow: `hidden`,
-}));
+  width: '100%',
+});
 
 const Navbar21 = styled(Navbar2, {
   shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
 })(({ theme, data }) => ({
-  width: data.size === 'mobile' ? `396px` : `1440px`,
   height: data.size === 'mobile' ? 'unset' : `60px`,
-  position: `absolute`,
-  left: `0px`,
-  top: `0px`,
+  width: data.size === 'mobile' ? `396px` : `1440px`,
+  margin: `0px`,
 }));
 
 const Hrucoin = styled('div', {
@@ -58,29 +54,7 @@ const Hrucoin = styled('div', {
   textDecoration: `none`,
   lineHeight: `62px`,
   textTransform: `none`,
-  position: `absolute`,
-  left: data.size === 'mobile' ? `116px` : `523px`,
-  top: data.size === 'mobile' ? `219px` : `280px`,
-}));
-
-const InnovatingBlockchain = styled('div', {
-  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
-})(({ data }) => ({
-  textAlign: `left`,
-  whiteSpace: `pre-wrap`,
-  color: `rgba(0, 0, 0, 1)`,
-  fontStyle: `normal`,
-  fontFamily: `Nova Round`,
-  fontWeight: `400`,
-  fontSize: `32px`,
-  letterSpacing: `-1.6px`,
-  textDecoration: `none`,
-  lineHeight: `62px`,
-  textTransform: `none`,
-  position: `absolute`,
-  left: data.size === 'mobile' ? `94px` : `462px`,
-  top: data.size === 'mobile' ? `375px` : `439px`,
-  width: data.size === 'mobile' ? `289px` : 'unset',
+  margin: data.size === 'mobile' ? `70px 0px 0px 0px` : `90px 0px 0px 0px`,
 }));
 
 const Button1 = styled('div', {
@@ -90,15 +64,14 @@ const Button1 = styled('div', {
   boxShadow: `0px 6px 7px rgba(123, 97, 255, 0.3)`,
   borderRadius: `8px`,
   display: `flex`,
-  position: `absolute`,
+  position: `relative`,
   isolation: `isolate`,
   flexDirection: `row`,
   justifyContent: `center`,
   alignItems: `flex-start`,
   padding: `14px 50px`,
   boxSizing: `border-box`,
-  left: data.size === 'mobile' ? `100px` : `622px`,
-  top: data.size === 'mobile' ? `313px` : `382px`,
+  margin: data.size === 'mobile' ? `70px 0px 0px 0px` : `90px 0px 0px 0px`,
 }));
 
 const LearnMore = styled('div')({
@@ -115,19 +88,35 @@ const LearnMore = styled('div')({
   margin: `0px`,
 });
 
+const Q1 = styled('div', {
+  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
+})(({ data }) => ({
+  textAlign: `left`,
+  whiteSpace: `pre-wrap`,
+  color: `rgba(0, 0, 0, 1)`,
+  fontStyle: `normal`,
+  fontFamily: `Nova Round`,
+  fontWeight: `400`,
+  fontSize: data.size === 'mobile' ? `16px` : `32px`,
+  letterSpacing: data.size === 'mobile' ? `-0.8px` : `-1.6px`,
+  textDecoration: `none`,
+  lineHeight: `62px`,
+  textTransform: `none`,
+  margin: data.size === 'mobile' ? `70px 0px 0px 0px` : `90px 0px 0px 0px`,
+  width: data.size === 'mobile' ? `289px` : 'unset',
+}));
+
 function Welcome(props) {
   const { data } = useWelcome();
 
   return (
-    <ScreenDesktop data={data}>
+    <ScreenDesktop>
       <Navbar21 data={data} />
       <Hrucoin data={data}>{`HRUCOIN`}</Hrucoin>
-      <InnovatingBlockchain data={data}>
-        {`Innovating Blockchain Health Services`}
-      </InnovatingBlockchain>
       <Button1 data={data}>
         <LearnMore>{`Learn More`}</LearnMore>
       </Button1>
+      <Q1 data={data}>{`Innovating Blockchain Health Services`}</Q1>
     </ScreenDesktop>
   );
 }
