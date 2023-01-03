@@ -17,22 +17,27 @@ import { Button } from '@mui/material';
 import Quest21Image from 'src/assets/images/Navbar2_Quest2_1.png';
 import HamburgerImage from 'src/assets/images/Navbar2_Hamburger.png';
 import { styled } from '@mui/material/styles';
+import useNavbar2 from 'src/components/Navbar2/useNavbar2';
 
-const ScreenDesktopTypeQue = styled('div')(({ theme }) => ({
+const ScreenDesktopTypeQue = styled('div', {
+  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
+})(({ theme, data }) => ({
   backgroundColor: theme.palette['Background']['Paper'],
   display: `flex`,
   position: `relative`,
   isolation: `isolate`,
   flexDirection: `row`,
   width: '100%',
-  height: `60px`,
-  justifyContent: `space-between`,
+  height: data.size === 'mobile' ? `40px` : `60px`,
+  justifyContent: data.size === 'mobile' ? `flex-start` : `space-between`,
   alignItems: `flex-start`,
-  padding: `6px 80px`,
+  padding: data.size === 'mobile' ? `2px 20px` : `6px 80px`,
   boxSizing: `border-box`,
 }));
 
-const Items = styled('div')({
+const Items = styled('div', {
+  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
+})(({ data }) => ({
   display: `flex`,
   position: `relative`,
   isolation: `isolate`,
@@ -42,8 +47,10 @@ const Items = styled('div')({
   padding: `0px`,
   boxSizing: `border-box`,
   alignSelf: `stretch`,
-  width: `1244px`,
-});
+  width: data.size === 'mobile' ? 'unset' : `1244px`,
+  flexGrow: data.size === 'mobile' ? `1` : 'unset',
+  margin: data.size === 'mobile' ? `0px` : 'unset',
+}));
 
 const Frame1 = styled('div')({
   display: `flex`,
@@ -56,12 +63,14 @@ const Frame1 = styled('div')({
   boxSizing: `border-box`,
 });
 
-const Quest21 = styled('img')({
-  height: `23px`,
-  width: `92px`,
+const Quest21 = styled('img', {
+  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
+})(({ data }) => ({
+  height: data.size === 'mobile' ? `18px` : `23px`,
+  width: data.size === 'mobile' ? `74px` : `92px`,
   objectFit: `contain`,
   margin: `0px`,
-});
+}));
 
 const MenuStructure = styled('div')({
   display: `flex`,
@@ -88,13 +97,18 @@ const Items1 = styled('div')({
   margin: `0px`,
 });
 
-const AboutUs = styled('div')(({ theme }) => ({
+const AboutUs = styled('div', {
+  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
+})(({ theme, data }) => ({
   textAlign: `center`,
   whiteSpace: `pre-wrap`,
-  color: theme.palette['Text']['Primary'],
+  color:
+    data.size === 'mobile'
+      ? `rgba(255, 255, 255, 1)`
+      : theme.palette['Text']['Primary'],
   fontStyle: `normal`,
   fontFamily: `Roboto`,
-  fontWeight: `500`,
+  fontWeight: data.size === 'mobile' ? `400` : `500`,
   fontSize: `12px`,
   letterSpacing: `1.2px`,
   textDecoration: `none`,
@@ -102,13 +116,18 @@ const AboutUs = styled('div')(({ theme }) => ({
   margin: `0px`,
 }));
 
-const OurTeam = styled('div')(({ theme }) => ({
+const OurTeam = styled('div', {
+  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
+})(({ theme, data }) => ({
   textAlign: `left`,
   whiteSpace: `pre-wrap`,
-  color: theme.palette['Text']['Primary'],
+  color:
+    data.size === 'mobile'
+      ? `rgba(255, 255, 255, 1)`
+      : theme.palette['Text']['Primary'],
   fontStyle: `normal`,
   fontFamily: `Roboto`,
-  fontWeight: `500`,
+  fontWeight: data.size === 'mobile' ? `400` : `500`,
   fontSize: `12px`,
   letterSpacing: `1.2px`,
   textDecoration: `none`,
@@ -117,13 +136,18 @@ const OurTeam = styled('div')(({ theme }) => ({
   margin: `0px 0px 0px 40px`,
 }));
 
-const Learn = styled('div')(({ theme }) => ({
+const Learn = styled('div', {
+  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
+})(({ theme, data }) => ({
   textAlign: `left`,
   whiteSpace: `pre-wrap`,
-  color: theme.palette['Text']['Primary'],
+  color:
+    data.size === 'mobile'
+      ? `rgba(255, 255, 255, 1)`
+      : theme.palette['Text']['Primary'],
   fontStyle: `normal`,
   fontFamily: `Roboto`,
-  fontWeight: `500`,
+  fontWeight: data.size === 'mobile' ? `400` : `500`,
   fontSize: `12px`,
   letterSpacing: `1.2px`,
   textDecoration: `none`,
@@ -149,10 +173,15 @@ const SignUp = styled('div')({
   boxSizing: `border-box`,
 });
 
-const LogIn = styled('div')(({ theme }) => ({
+const LogIn = styled('div', {
+  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
+})(({ theme, data }) => ({
   textAlign: `left`,
   whiteSpace: `pre-wrap`,
-  color: theme.palette['Text']['Primary'],
+  color:
+    data.size === 'mobile'
+      ? `rgba(0, 0, 0, 1)`
+      : theme.palette['Text']['Primary'],
   fontStyle: `normal`,
   fontFamily: `Roboto`,
   fontWeight: `500`,
@@ -169,24 +198,29 @@ const ButtonContained = styled(Button)({
 });
 
 function Navbar2(props) {
+  const { data } = useNavbar2();
+
   return (
-    <ScreenDesktopTypeQue>
-      <Items>
+    <ScreenDesktopTypeQue data={data}>
+      <Items data={data}>
         <Frame1>
-          <Quest21 src={Quest21Image} loading="lazy" alt={'Quest2 1'} />
+          <Quest21
+            data={data}
+            src={Quest21Image}
+            loading="lazy"
+            alt={'Quest2 1'}
+          />
         </Frame1>
         <MenuStructure>
           <Items1>
-            <AboutUs>{`about us`}</AboutUs>
-            <OurTeam>{`our team`}</OurTeam>
-            <Learn>{`learn`}</Learn>
+            <AboutUs data={data}>{`about us`}</AboutUs>
+            <OurTeam data={data}>{`our team`}</OurTeam>
+            <Learn data={data}>{`learn`}</Learn>
           </Items1>
-          {false && (
-            <Hamburger src={HamburgerImage} loading="lazy" alt={'Hamburger'} />
-          )}
+          <Hamburger src={HamburgerImage} loading="lazy" alt={'Hamburger'} />
         </MenuStructure>
         <SignUp>
-          <LogIn>{`LOG-in`}</LogIn>
+          <LogIn data={data}>{`LOG-in`}</LogIn>
           <ButtonContained variant="contained" size="small" color="secondary">
             {' '}
             SIGN-UP{' '}
