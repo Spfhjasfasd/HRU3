@@ -12,7 +12,16 @@
 
 const useNavbar2 = () => {
   let data = {};
-
+  let d = window.matchMedia("(min-width: 1100px)");
+  let t = window.matchMedia("(min-width: 600px) and (max-width: 1100px)");
+  let m = window.matchMedia("(max-width: 600px)");
+  if(d.matches){
+    data.size = "desktop"
+  }else if(t.matches){
+    data.size = "tablet"
+  }else if(m.matches){
+    data.size = "mobile"
+  }
   let fns = {};
   return { data, fns };
 };
