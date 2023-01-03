@@ -15,7 +15,6 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
 import Navbar2 from 'src/components/Navbar2/Navbar2';
-import MetricsBtn1 from 'src/components/MetricsBtn1/MetricsBtn1';
 import { animated, useSpring, easings } from 'react-spring';
 
 const ScreenDesktop = styled('div')({
@@ -138,14 +137,6 @@ const Label1 = styled('div')(({ theme }) => ({
   margin: `0px`,
 }));
 
-const MetricsBtn11 = styled(MetricsBtn1)(({ theme }) => ({
-  width: `303px`,
-  height: `60px`,
-  position: `absolute`,
-  left: `575px`,
-  top: `589px`,
-}));
-
 function Welcome(props) {
   const [HrucoinSpring, HrucoinApi] = useSpring(() => ({
     config: {
@@ -202,7 +193,6 @@ function Welcome(props) {
           </Text>
         </Frame1>
       </Label>
-      <MetricsBtn11 />
     </ScreenDesktop>
   );
 }
