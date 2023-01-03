@@ -44,31 +44,90 @@ const Navbar21 = styled(Navbar2, {
   top: `0px`,
 }));
 
-const T1 = styled('div', {
+const Hrucoin = styled('div', {
   shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
 })(({ data }) => ({
   textAlign: `left`,
   whiteSpace: `pre-wrap`,
+  color: `rgba(0, 0, 0, 1)`,
+  fontStyle: `normal`,
+  fontFamily: `Nova Round`,
+  fontWeight: `400`,
+  fontSize: data.size === 'mobile' ? `40px` : `96px`,
+  letterSpacing: data.size === 'mobile' ? `-2px` : `-4.8px`,
+  textDecoration: `none`,
+  lineHeight: `62px`,
+  textTransform: `none`,
+  position: `absolute`,
+  left: data.size === 'mobile' ? `116px` : `523px`,
+  top: data.size === 'mobile' ? `219px` : `280px`,
+}));
+
+const InnovatingBlockchain = styled('div', {
+  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
+})(({ data }) => ({
+  textAlign: `left`,
+  whiteSpace: `pre-wrap`,
+  color: `rgba(0, 0, 0, 1)`,
+  fontStyle: `normal`,
+  fontFamily: `Nova Round`,
+  fontWeight: `400`,
+  fontSize: `32px`,
+  letterSpacing: `-1.6px`,
+  textDecoration: `none`,
+  lineHeight: `62px`,
+  textTransform: `none`,
+  position: `absolute`,
+  left: data.size === 'mobile' ? `94px` : `462px`,
+  top: data.size === 'mobile' ? `375px` : `439px`,
+  width: data.size === 'mobile' ? `289px` : 'unset',
+}));
+
+const Button1 = styled('div', {
+  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
+})(({ data }) => ({
+  backgroundColor: `rgba(123, 97, 255, 1)`,
+  boxShadow: `0px 6px 7px rgba(123, 97, 255, 0.3)`,
+  borderRadius: `8px`,
+  display: `flex`,
+  position: `absolute`,
+  isolation: `isolate`,
+  flexDirection: `row`,
+  justifyContent: `center`,
+  alignItems: `flex-start`,
+  padding: `14px 50px`,
+  boxSizing: `border-box`,
+  left: data.size === 'mobile' ? `100px` : `622px`,
+  top: data.size === 'mobile' ? `313px` : `382px`,
+}));
+
+const LearnMore = styled('div')({
+  textAlign: `left`,
+  whiteSpace: `pre-wrap`,
   color: `rgba(255, 255, 255, 1)`,
   fontStyle: `normal`,
-  fontFamily: `Heebo`,
-  fontWeight: `400`,
-  fontSize: `20px`,
-  letterSpacing: `0px`,
+  fontFamily: `Inter`,
+  fontWeight: `500`,
+  fontSize: `16px`,
+  letterSpacing: `0.96px`,
   textDecoration: `none`,
-  textTransform: `uppercase`,
-  position: `absolute`,
-  left: data.size === 'mobile' ? `155px` : `552px`,
-  top: data.size === 'mobile' ? `402px` : `410px`,
-}));
+  textTransform: `none`,
+  margin: `0px`,
+});
 
 function Welcome(props) {
   const { data } = useWelcome();
-  console.log(data)
+
   return (
     <ScreenDesktop data={data}>
       <Navbar21 data={data} />
-      <T1 data={data}>{data.size === 'mobile' ? `trasd` : `t1`}</T1>
+      <Hrucoin data={data}>{`HRUCOIN`}</Hrucoin>
+      <InnovatingBlockchain data={data}>
+        {`Innovating Blockchain Health Services`}
+      </InnovatingBlockchain>
+      <Button1 data={data}>
+        <LearnMore>{`Learn More`}</LearnMore>
+      </Button1>
     </ScreenDesktop>
   );
 }
