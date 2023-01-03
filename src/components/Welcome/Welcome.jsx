@@ -64,7 +64,7 @@ const T1 = styled('div', {
 
 function Welcome(props) {
   const { data } = useWelcome();
-
+  console.log(data)
   return (
     <ScreenDesktop data={data}>
       <Navbar21 data={data} />
