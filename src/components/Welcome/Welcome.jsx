@@ -15,9 +15,12 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
 import Navbar2 from 'src/components/Navbar2/Navbar2';
+import MetricsBtn1 from 'src/components/MetricsBtn1/MetricsBtn1';
+import { animated, useSpring, easings } from 'react-spring';
 
 const ScreenDesktop = styled('div')({
   backgroundColor: `rgba(191, 38, 158, 1)`,
+  boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
   display: `flex`,
   position: `relative`,
   isolation: `isolate`,
@@ -39,79 +42,167 @@ const Navbar21 = styled(Navbar2)(({ theme }) => ({
   top: `0px`,
 }));
 
-const Q1 = styled('div')({
-  textAlign: `left`,
-  whiteSpace: `pre-wrap`,
-  color: `rgba(0, 0, 0, 1)`,
-  fontStyle: `normal`,
-  fontFamily: `Nova Round`,
-  fontWeight: `400`,
-  fontSize: `32px`,
-  letterSpacing: `-1.6px`,
-  textDecoration: `none`,
-  lineHeight: `62px`,
-  textTransform: `none`,
-  position: `absolute`,
-  left: `462px`,
-  top: `140px`,
-});
+const Hrucoin = animated(
+  styled('div')({
+    textAlign: `left`,
+    whiteSpace: `pre-wrap`,
+    color: `rgba(0, 0, 0, 1)`,
+    fontStyle: `normal`,
+    fontFamily: `Anek Gujarati`,
+    fontWeight: `400`,
+    fontSize: `96px`,
+    letterSpacing: `-4.8px`,
+    textDecoration: `none`,
+    lineHeight: `62px`,
+    textTransform: `none`,
+    position: `absolute`,
+    left: `554px`,
+    top: `356px`,
+  })
+);
 
-const Button1 = styled('div')({
-  backgroundColor: `rgba(123, 97, 255, 1)`,
-  boxShadow: `0px 6px 7px rgba(123, 97, 255, 0.3)`,
-  borderRadius: `8px`,
+const OneBlockAtATime = animated(
+  styled('div')({
+    textAlign: `left`,
+    whiteSpace: `pre-wrap`,
+    color: `rgba(0, 0, 0, 1)`,
+    fontStyle: `normal`,
+    fontFamily: `Anek Gujarati`,
+    fontWeight: `400`,
+    fontSize: `24px`,
+    letterSpacing: `-1.2px`,
+    textDecoration: `none`,
+    lineHeight: `62px`,
+    textTransform: `none`,
+    position: `absolute`,
+    left: `635px`,
+    top: `502px`,
+  })
+);
+
+const Label = animated(
+  styled('div')({
+    background: `linear-gradient(90deg, rgba(123, 97, 255, 1) 27.623125519423546%, rgba(254, 136, 136, 1) 89.6145617438896%)`,
+    borderRadius: `50px`,
+    display: `flex`,
+    position: `absolute`,
+    isolation: `isolate`,
+    flexDirection: `row`,
+    justifyContent: `center`,
+    alignItems: `center`,
+    padding: `20px`,
+    boxSizing: `border-box`,
+    width: `457px`,
+    height: `48px`,
+    left: `491px`,
+    top: `443px`,
+  })
+);
+
+const Frame1 = styled('div')({
   display: `flex`,
-  position: `absolute`,
+  position: `relative`,
   isolation: `isolate`,
   flexDirection: `row`,
   justifyContent: `center`,
-  alignItems: `flex-start`,
-  padding: `14px 50px`,
+  alignItems: `center`,
+  padding: `0px 5px`,
   boxSizing: `border-box`,
-  left: `622px`,
-  top: `282px`,
-});
-
-const LearnMore = styled('div')({
-  textAlign: `left`,
-  whiteSpace: `pre-wrap`,
-  color: `rgba(255, 255, 255, 1)`,
-  fontStyle: `normal`,
-  fontFamily: `Inter`,
-  fontWeight: `500`,
-  fontSize: `16px`,
-  letterSpacing: `0.96px`,
-  textDecoration: `none`,
-  textTransform: `none`,
+  height: `24px`,
   margin: `0px`,
 });
 
-const Hrucoin = styled('div')({
-  textAlign: `left`,
-  whiteSpace: `pre-wrap`,
-  color: `rgba(0, 0, 0, 1)`,
-  fontStyle: `normal`,
-  fontFamily: `Nova Round`,
-  fontWeight: `400`,
-  fontSize: `96px`,
-  letterSpacing: `-4.8px`,
-  textDecoration: `none`,
-  lineHeight: `62px`,
-  textTransform: `none`,
-  position: `absolute`,
-  left: `467px`,
-  top: `449px`,
+const Text = styled('div')({
+  display: `flex`,
+  position: `relative`,
+  isolation: `isolate`,
+  flexDirection: `row`,
+  justifyContent: `center`,
+  alignItems: `center`,
+  padding: `3px`,
+  boxSizing: `border-box`,
+  margin: `0px`,
 });
 
+const Label1 = styled('div')(({ theme }) => ({
+  textAlign: `center`,
+  whiteSpace: `pre-wrap`,
+  color: theme.palette['Primary']['Contrast'],
+  fontStyle: `normal`,
+  fontFamily: `Heebo`,
+  fontWeight: `700`,
+  fontSize: `29px`,
+  letterSpacing: `0px`,
+  textDecoration: `none`,
+  textTransform: `none`,
+  margin: `0px`,
+}));
+
+const MetricsBtn11 = styled(MetricsBtn1)(({ theme }) => ({
+  width: `303px`,
+  height: `60px`,
+  position: `absolute`,
+  left: `575px`,
+  top: `589px`,
+}));
+
 function Welcome(props) {
+  const [HrucoinSpring, HrucoinApi] = useSpring(() => ({
+    config: {
+      duration: 500,
+      easing: easings['easeOutExpo'],
+    },
+    delay: 0,
+    from: { opacity: 0 },
+  }));
+
+  const [OneBlockAtATimeSpring, OneBlockAtATimeApi] = useSpring(() => ({
+    config: {
+      duration: 250,
+      easing: easings['easeOutExpo'],
+    },
+    delay: 1250,
+    from: { opacity: 1 },
+  }));
+
+  const [LabelSpring, LabelApi] = useSpring(() => ({
+    config: {
+      duration: 1000,
+      easing: easings['easeOutExpo'],
+    },
+    delay: 0,
+    from: { opacity: 0 },
+  }));
+
+  React.useEffect(() => {
+    HrucoinApi.start({
+      ...{ opacity: 1 },
+      delay: 0,
+      config: { duration: 500 },
+    });
+    LabelApi.start({ ...{ opacity: 1 }, delay: 0, config: { duration: 1000 } });
+  }, []);
+
   return (
     <ScreenDesktop>
       <Navbar21 />
-      <Q1>{`Innovating Blockchain Health Services`}</Q1>
-      <Button1>
-        <LearnMore>{`Learn More`}</LearnMore>
-      </Button1>
-      <Hrucoin>{`HRUCOIN`}</Hrucoin>
+      <Hrucoin style={{ ...HrucoinSpring }}>{`HRUCOIN`}</Hrucoin>
+      <OneBlockAtATime
+        onClick={() => {
+          OneBlockAtATimeApi.start({ ...{ opacity: 0 }, delay: 1250 });
+        }}
+        style={{ ...OneBlockAtATimeSpring }}
+      >
+        {`One block at a time`}
+      </OneBlockAtATime>
+      <Label style={{ ...LabelSpring }}>
+        <Frame1>
+          <Text>
+            <Label1>{`Innovating Defi Health.`}</Label1>
+          </Text>
+        </Frame1>
+      </Label>
+      <MetricsBtn11 />
     </ScreenDesktop>
   );
 }
