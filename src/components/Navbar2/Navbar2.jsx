@@ -161,6 +161,20 @@ const Community = styled('div')(({ theme }) => ({
   margin: `0px 0px 0px 40px`,
 }));
 
+const Presale = styled('div')(({ theme }) => ({
+  textAlign: `center`,
+  whiteSpace: `pre-wrap`,
+  color: theme.palette['Background']['Paper'],
+  fontStyle: `normal`,
+  fontFamily: `Roboto`,
+  fontWeight: `400`,
+  fontSize: `14px`,
+  letterSpacing: `0px`,
+  textDecoration: `none`,
+  textTransform: `none`,
+  margin: `0px 0px 0px 40px`,
+}));
+
 const Hamburger = styled('img')({
   height: `15px`,
   width: `21px`,
@@ -181,6 +195,7 @@ function Navbar2(props) {
             <Learn>{`learn`}</Learn>
             <Social>{`social`}</Social>
             <Community>{`community`}</Community>
+            <Presale>{`about us`}</Presale>
           </Items1>
           {false && (
             <Hamburger src={HamburgerImage} loading="lazy" alt={'Hamburger'} />
