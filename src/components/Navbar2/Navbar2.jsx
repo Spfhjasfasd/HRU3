@@ -15,27 +15,22 @@
 import React from 'react';
 import HamburgerImage from 'src/assets/images/Navbar2_Hamburger.png';
 import { styled } from '@mui/material/styles';
-import useNavbar2 from 'src/components/Navbar2/useNavbar2';
 
-const ScreenDesktopTypeQue = styled('div', {
-  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
-})(({ data }) => ({
-  backgroundColor: `rgba(174, 29, 198, 0.33)`,
+const ScreenNavbar1TypeDes = styled('div')({
+  backgroundColor: `rgba(0, 0, 0, 1)`,
   display: `flex`,
   position: `relative`,
   isolation: `isolate`,
   flexDirection: `row`,
   width: '100%',
-  height: data.size === 'mobile' ? `40px` : `60px`,
-  justifyContent: data.size === 'mobile' ? `flex-start` : `space-between`,
+  justifyContent: `flex-start`,
   alignItems: `flex-start`,
-  padding: data.size === 'mobile' ? `2px 20px` : `6px 80px`,
+  padding: `6px 80px`,
   boxSizing: `border-box`,
-}));
+  height: 'auto',
+});
 
-const Items = styled('div', {
-  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
-})(({ data }) => ({
+const Items = styled('div')({
   display: `flex`,
   position: `relative`,
   isolation: `isolate`,
@@ -44,24 +39,9 @@ const Items = styled('div', {
   alignItems: `center`,
   padding: `0px`,
   boxSizing: `border-box`,
-  alignSelf: `stretch`,
-  width: data.size === 'mobile' ? 'unset' : `598px`,
-  backgroundColor: data.size === 'mobile' ? `rgba(174, 29, 198, 0)` : 'unset',
-  flexGrow: data.size === 'mobile' ? `1` : 'unset',
-  margin: data.size === 'mobile' ? `0px` : 'unset',
-}));
-
-const Frame1 = styled('div', {
-  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
-})(({ data }) => ({
-  display: `flex`,
-  position: `relative`,
-  isolation: `isolate`,
-  flexDirection: `column`,
-  justifyContent: `flex-start`,
-  alignItems: `flex-start`,
-  width: data.size === 'mobile' ? `74px` : `92px`,
-}));
+  flexGrow: `1`,
+  margin: `0px`,
+});
 
 const MenuStructure = styled('div')({
   display: `flex`,
@@ -75,9 +55,7 @@ const MenuStructure = styled('div')({
   height: `36px`,
 });
 
-const Items1 = styled('div', {
-  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
-})(({ data }) => ({
+const Items1 = styled('div')({
   display: `flex`,
   position: `relative`,
   isolation: `isolate`,
@@ -87,34 +65,34 @@ const Items1 = styled('div', {
   padding: `0px`,
   boxSizing: `border-box`,
   alignSelf: `stretch`,
-  margin: data.size === 'mobile' ? `0px 0px 0px 40px` : `0px`,
-}));
+  margin: `0px`,
+});
 
 const AboutUs = styled('div')(({ theme }) => ({
   textAlign: `center`,
   whiteSpace: `pre-wrap`,
-  color: theme.palette['Text']['Primary'],
+  color: theme.palette['Background']['Paper'],
   fontStyle: `normal`,
   fontFamily: `Roboto`,
-  fontWeight: `500`,
-  fontSize: `12px`,
-  letterSpacing: `1.2px`,
+  fontWeight: `400`,
+  fontSize: `14px`,
+  letterSpacing: `0px`,
   textDecoration: `none`,
-  textTransform: `uppercase`,
+  textTransform: `none`,
   margin: `0px`,
 }));
 
 const OurTeam = styled('div')(({ theme }) => ({
   textAlign: `left`,
   whiteSpace: `pre-wrap`,
-  color: theme.palette['Text']['Primary'],
+  color: theme.palette['Background']['Paper'],
   fontStyle: `normal`,
   fontFamily: `Roboto`,
-  fontWeight: `500`,
-  fontSize: `12px`,
-  letterSpacing: `1.2px`,
+  fontWeight: `400`,
+  fontSize: `14px`,
+  letterSpacing: `0px`,
   textDecoration: `none`,
-  textTransform: `uppercase`,
+  textTransform: `none`,
   opacity: `0.6000000238418579`,
   margin: `0px 0px 0px 40px`,
 }));
@@ -122,97 +100,72 @@ const OurTeam = styled('div')(({ theme }) => ({
 const Learn = styled('div')(({ theme }) => ({
   textAlign: `left`,
   whiteSpace: `pre-wrap`,
-  color: theme.palette['Text']['Primary'],
+  color: theme.palette['Background']['Paper'],
   fontStyle: `normal`,
   fontFamily: `Roboto`,
-  fontWeight: `500`,
-  fontSize: `12px`,
-  letterSpacing: `1.2px`,
+  fontWeight: `400`,
+  fontSize: `14px`,
+  letterSpacing: `0px`,
   textDecoration: `none`,
-  textTransform: `uppercase`,
+  textTransform: `none`,
   opacity: `0.6000000238418579`,
   margin: `0px 0px 0px 40px`,
 }));
 
-const Tokenomics = styled('div')(({ theme }) => ({
-  textAlign: `center`,
+const Social = styled('div')(({ theme }) => ({
+  textAlign: `left`,
   whiteSpace: `pre-wrap`,
-  color: theme.palette['Text']['Primary'],
+  color: theme.palette['Background']['Paper'],
   fontStyle: `normal`,
   fontFamily: `Roboto`,
-  fontWeight: `500`,
-  fontSize: `12px`,
-  letterSpacing: `1.2px`,
+  fontWeight: `400`,
+  fontSize: `14px`,
+  letterSpacing: `0px`,
   textDecoration: `none`,
-  textTransform: `uppercase`,
+  textTransform: `none`,
+  opacity: `0.6000000238418579`,
   margin: `0px 0px 0px 40px`,
 }));
 
-const Team = styled('div')(({ theme }) => ({
-  textAlign: `center`,
+const Community = styled('div')(({ theme }) => ({
+  textAlign: `left`,
   whiteSpace: `pre-wrap`,
-  color: theme.palette['Text']['Primary'],
+  color: theme.palette['Background']['Paper'],
   fontStyle: `normal`,
   fontFamily: `Roboto`,
-  fontWeight: `500`,
-  fontSize: `12px`,
-  letterSpacing: `1.2px`,
+  fontWeight: `400`,
+  fontSize: `14px`,
+  letterSpacing: `0px`,
   textDecoration: `none`,
-  textTransform: `uppercase`,
+  textTransform: `none`,
+  opacity: `0.6000000238418579`,
   margin: `0px 0px 0px 40px`,
 }));
 
-const PResale = styled('div')(({ theme }) => ({
-  textAlign: `center`,
-  whiteSpace: `pre-wrap`,
-  color: theme.palette['Text']['Primary'],
-  fontStyle: `normal`,
-  fontFamily: `Roboto`,
-  fontWeight: `500`,
-  fontSize: `12px`,
-  letterSpacing: `1.2px`,
-  textDecoration: `none`,
-  textTransform: `uppercase`,
-  margin: `0px 0px 0px 40px`,
-}));
-
-const Hamburger = styled('img', {
-  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
-})(({ data }) => ({
+const Hamburger = styled('img')({
   height: `15px`,
   width: `21px`,
-  margin: data.size === 'mobile' ? `0px` : `0px 0px 0px 40px`,
-}));
+  margin: `0px 0px 0px 40px`,
+});
 
 function Navbar2(props) {
-  const { data } = useNavbar2();
-
   return (
-    <ScreenDesktopTypeQue data={data}>
-      <Items data={data}>
-        <Frame1 data={data}></Frame1>
+    <ScreenNavbar1TypeDes>
+      <Items>
         <MenuStructure>
-          {!(data.size === 'mobile') && (
-            <Items1 data={data}>
-              <AboutUs>{`about us`}</AboutUs>
-              <OurTeam>{`our team`}</OurTeam>
-              <Learn>{`learn`}</Learn>
-              <Tokenomics>{`TOkenomics`}</Tokenomics>
-              <Team>{`about us`}</Team>
-              <PResale>{`Presale`}</PResale>
-            </Items1>
-          )}
-          {data.size === 'mobile' && (
-            <Hamburger
-              data={data}
-              src={HamburgerImage}
-              loading="lazy"
-              alt={'Hamburger'}
-            />
+          <Items1>
+            <AboutUs>{`about us`}</AboutUs>
+            <OurTeam>{`our team`}</OurTeam>
+            <Learn>{`learn`}</Learn>
+            <Social>{`social`}</Social>
+            <Community>{`community`}</Community>
+          </Items1>
+          {false && (
+            <Hamburger src={HamburgerImage} loading="lazy" alt={'Hamburger'} />
           )}
         </MenuStructure>
       </Items>
-    </ScreenDesktopTypeQue>
+    </ScreenNavbar1TypeDes>
   );
 }
 
