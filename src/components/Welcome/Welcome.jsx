@@ -50,8 +50,8 @@ const Frame2 = styled('div')({
   alignItems: `flex-start`,
   padding: `10px`,
   boxSizing: `border-box`,
-  left: `544px`,
-  top: `345px`,
+  left: `850px`,
+  top: `353px`,
 });
 
 const Hrucoin = animated(
@@ -86,7 +86,7 @@ const OneBlockAtATime = animated(
     lineHeight: `62px`,
     textTransform: `none`,
     position: `absolute`,
-    left: `635px`,
+    left: `961px`,
     top: `525px`,
   })
 );
@@ -103,7 +103,7 @@ const Label = animated(
     alignItems: `center`,
     padding: `20px`,
     boxSizing: `border-box`,
-    left: `542px`,
+    left: `850px`,
     top: `448px`,
   })
 );
