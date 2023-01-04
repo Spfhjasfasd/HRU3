@@ -24,7 +24,7 @@ const ScreenDesktop = styled('div')({
   position: `relative`,
   isolation: `isolate`,
   flexDirection: `row`,
-  width: '100%',
+  width: '100vw',
   height: '100vh',
   justifyContent: `flex-start`,
   alignItems: `flex-start`,
@@ -34,7 +34,7 @@ const ScreenDesktop = styled('div')({
 });
 
 const Navbar21 = styled(Navbar2)(({ theme }) => ({
-  width: `1920px`,
+  width: `1440px`,
   height: `60px`,
   position: `absolute`,
   left: `0px`,
@@ -55,8 +55,8 @@ const Hrucoin = animated(
     lineHeight: `62px`,
     textTransform: `none`,
     position: `absolute`,
-    left: `794px`,
-    top: `402px`,
+    left: `554px`,
+    top: `355px`,
   })
 );
 
@@ -74,8 +74,8 @@ const OneBlockAtATime = animated(
     lineHeight: `62px`,
     textTransform: `none`,
     position: `absolute`,
-    left: `887px`,
-    top: `540px`,
+    left: `635px`,
+    top: `525px`,
   })
 );
 
@@ -91,8 +91,8 @@ const Label = animated(
     alignItems: `center`,
     padding: `20px`,
     boxSizing: `border-box`,
-    left: `782px`,
-    top: `476px`,
+    left: `542px`,
+    top: `448px`,
   })
 );
 
