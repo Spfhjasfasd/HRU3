@@ -50,8 +50,10 @@ const Frame2 = styled('div')({
   alignItems: `flex-start`,
   padding: `10px`,
   boxSizing: `border-box`,
-  left: `850px`,
-  top: `353px`,
+  position: 'absolute',
+  left: '50%',
+  top: '42%',
+  transform: 'translate(-50%, -50%)'
 });
 
 const Hrucoin = animated(
@@ -85,9 +87,10 @@ const OneBlockAtATime = animated(
     textDecoration: `none`,
     lineHeight: `62px`,
     textTransform: `none`,
-    position: `absolute`,
-    left: `961px`,
-    top: `525px`,
+    position: 'absolute',
+    left: '50%',
+    top: '59%',
+    transform: 'translate(-50%, -50%)'
   })
 );
 
@@ -103,8 +106,10 @@ const Label = animated(
     alignItems: `center`,
     padding: `20px`,
     boxSizing: `border-box`,
-    left: `850px`,
-    top: `448px`,
+    position: 'absolute',
+    left: '50%',
+    top: '52%',
+    transform: 'translate(-50%, -50%)'
   })
 );
 
