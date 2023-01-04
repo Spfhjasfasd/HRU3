@@ -50,8 +50,10 @@ const Frame2 = styled('div')({
   alignItems: `flex-start`,
   padding: `10px`,
   boxSizing: `border-box`,
-  left: `449px`,
-  top: `312px`,
+  position: 'absolute',
+  left: '50%',
+  top: '29%',
+  transform: 'translate(-50%, -50%)'
 });
 
 const Hrucoin = animated(
@@ -85,9 +87,10 @@ const OneBlockAtATime = animated(
     textDecoration: `none`,
     lineHeight: `62px`,
     textTransform: `none`,
-    position: `absolute`,
-    left: `594px`,
-    top: `501px`,
+    position: 'absolute',
+    left: '50%',
+    top: '45%',
+    transform: 'translate(-50%, -50%)'
   })
 );
 
@@ -103,8 +106,10 @@ const Label = animated(
     alignItems: `center`,
     padding: `20px`,
     boxSizing: `border-box`,
-    left: `554px`,
-    top: `429px`,
+    position: 'absolute',
+    left: '50%',
+    top: '40%',
+    transform: 'translate(-50%, -50%)'
   })
 );
 
@@ -162,11 +167,10 @@ const HrucoinWasCreatedWit = animated(
     textDecoration: `none`,
     lineHeight: `92.00000166893005%`,
     textTransform: `none`,
-    width: `1038px`,
-    height: `185px`,
-    position: `absolute`,
-    left: `190px`,
-    top: `593px`,
+    position: 'absolute',
+    left: '41%',
+    top: '58%',
+    transform: 'translate(-50%, -50%)'
   })
 );
 
