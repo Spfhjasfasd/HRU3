@@ -18,7 +18,7 @@ import Navbar2 from 'src/components/Navbar2/Navbar2';
 import { animated, useSpring, easings } from 'react-spring';
 
 const ScreenDesktop = styled('div')({
-  backgroundColor: `rgba(191, 38, 158, 1)`,
+  background: `linear-gradient(180deg, rgba(213, 15, 217, 1) -3.0616171314629196e-15%, rgba(213, 15, 217, 0) 99.99999999999999%)`,
   boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
   display: `flex`,
   position: `relative`,
@@ -50,10 +50,8 @@ const Frame2 = styled('div')({
   alignItems: `flex-start`,
   padding: `10px`,
   boxSizing: `border-box`,
-  position: 'absolute',
-  left: '50%',
-  top: '42%',
-  transform: 'translate(-50%, -50%)'
+  left: `449px`,
+  top: `312px`,
 });
 
 const Hrucoin = animated(
@@ -62,10 +60,10 @@ const Hrucoin = animated(
     whiteSpace: `pre-wrap`,
     color: `rgba(0, 0, 0, 1)`,
     fontStyle: `normal`,
-    fontFamily: `Anek Gujarati`,
+    fontFamily: `Azeret Mono`,
     fontWeight: `400`,
-    fontSize: `96px`,
-    letterSpacing: `-4.8px`,
+    fontSize: `128px`,
+    letterSpacing: `-6.4px`,
     textDecoration: `none`,
     lineHeight: `62px`,
     textTransform: `none`,
@@ -80,17 +78,16 @@ const OneBlockAtATime = animated(
     whiteSpace: `pre-wrap`,
     color: `rgba(0, 0, 0, 1)`,
     fontStyle: `normal`,
-    fontFamily: `Anek Gujarati`,
+    fontFamily: `Azeret Mono`,
     fontWeight: `400`,
     fontSize: `24px`,
     letterSpacing: `-1.2px`,
     textDecoration: `none`,
     lineHeight: `62px`,
     textTransform: `none`,
-    position: 'absolute',
-    left: '50%',
-    top: '59%',
-    transform: 'translate(-50%, -50%)'
+    position: `absolute`,
+    left: `594px`,
+    top: `501px`,
   })
 );
 
@@ -106,10 +103,8 @@ const Label = animated(
     alignItems: `center`,
     padding: `20px`,
     boxSizing: `border-box`,
-    position: 'absolute',
-    left: '50%',
-    top: '52%',
-    transform: 'translate(-50%, -50%)'
+    left: `554px`,
+    top: `429px`,
   })
 );
 
@@ -138,24 +133,47 @@ const Text = styled('div')({
   margin: `0px`,
 });
 
-const Label1 = styled('div')(({ theme }) => ({
-  textAlign: `center`,
-  whiteSpace: `pre-wrap`,
-  color: theme.palette['Primary']['Contrast'],
-  fontStyle: `normal`,
-  fontFamily: `Heebo`,
-  fontWeight: `700`,
-  fontSize: `29px`,
-  letterSpacing: `0px`,
-  textDecoration: `none`,
-  textTransform: `none`,
-  margin: `0px`,
-}));
+const Label1 = animated(
+  styled('div')(({ theme }) => ({
+    textAlign: `center`,
+    whiteSpace: `pre-wrap`,
+    color: theme.palette['Primary']['Contrast'],
+    fontStyle: `normal`,
+    fontFamily: `Heebo`,
+    fontWeight: `700`,
+    fontSize: `29px`,
+    letterSpacing: `0px`,
+    textDecoration: `none`,
+    textTransform: `none`,
+    margin: `0px`,
+  }))
+);
+
+const HrucoinWasCreatedWit = animated(
+  styled('div')({
+    textAlign: `left`,
+    whiteSpace: `pre-wrap`,
+    color: `rgba(0, 0, 0, 1)`,
+    fontStyle: `normal`,
+    fontFamily: `Azeret Mono`,
+    fontWeight: `700`,
+    fontSize: `23px`,
+    letterSpacing: `-0.69px`,
+    textDecoration: `none`,
+    lineHeight: `92.00000166893005%`,
+    textTransform: `none`,
+    width: `1038px`,
+    height: `185px`,
+    position: `absolute`,
+    left: `190px`,
+    top: `593px`,
+  })
+);
 
 function Welcome(props) {
   const [HrucoinSpring, HrucoinApi] = useSpring(() => ({
     config: {
-      duration: 500,
+      duration: 1500,
       easing: easings['easeOutExpo'],
     },
     delay: 0,
@@ -167,26 +185,61 @@ function Welcome(props) {
       duration: 250,
       easing: easings['easeOutExpo'],
     },
-    delay: 1250,
-    from: { opacity: 1 },
+    delay: 0,
+    from: { opacity: 0 },
   }));
 
   const [LabelSpring, LabelApi] = useSpring(() => ({
     config: {
-      duration: 1000,
+      duration: 3000,
       easing: easings['easeOutExpo'],
     },
     delay: 0,
     from: { opacity: 0 },
   }));
 
+  const [Label1Spring, Label1Api] = useSpring(() => ({
+    config: {
+      duration: 3000,
+      easing: easings['easeOutExpo'],
+    },
+    delay: 0,
+    from: { opacity: 0 },
+  }));
+
+  const [HrucoinWasCreatedWitSpring, HrucoinWasCreatedWitApi] = useSpring(
+    () => ({
+      config: {
+        duration: 4000,
+        easing: easings['easeOutExpo'],
+      },
+      delay: 0,
+      from: { opacity: 0 },
+    })
+  );
+
   React.useEffect(() => {
     HrucoinApi.start({
       ...{ opacity: 1 },
       delay: 0,
-      config: { duration: 500 },
+      config: { duration: 1500 },
     });
-    LabelApi.start({ ...{ opacity: 1 }, delay: 0, config: { duration: 1000 } });
+    LabelApi.start({ ...{ opacity: 1 }, delay: 0, config: { duration: 3000 } });
+    OneBlockAtATimeApi.start({
+      ...{ opacity: 1 },
+      delay: 0,
+      config: { duration: 250 },
+    });
+    Label1Api.start({
+      ...{ opacity: 1 },
+      delay: 0,
+      config: { duration: 3000 },
+    });
+    HrucoinWasCreatedWitApi.start({
+      ...{ opacity: 1 },
+      delay: 0,
+      config: { duration: 4000 },
+    });
   }, []);
 
   return (
@@ -195,21 +248,28 @@ function Welcome(props) {
       <Frame2>
         <Hrucoin style={{ ...HrucoinSpring }}>{`HRUCOIN`}</Hrucoin>
       </Frame2>
-      <OneBlockAtATime
-        onClick={() => {
-          OneBlockAtATimeApi.start({ ...{ opacity: 0 }, delay: 1250 });
-        }}
-        style={{ ...OneBlockAtATimeSpring }}
-      >
+      <OneBlockAtATime style={{ ...OneBlockAtATimeSpring }}>
         {`One block at a time`}
       </OneBlockAtATime>
       <Label style={{ ...LabelSpring }}>
         <Frame1>
           <Text>
-            <Label1>{`Innovating Defi Health.`}</Label1>
+            <Label1 style={{ ...Label1Spring }}>
+              {`Innovating Defi Health.`}
+            </Label1>
           </Text>
         </Frame1>
       </Label>
+      <HrucoinWasCreatedWit style={{ ...HrucoinWasCreatedWitSpring }}>
+        {`HRUCOIN Was Created With 3 Core Values...
+
+To Improve Mental Health in the Crypto Space
+
+To Allow Blockchain Adaptions And onboarding for Mental Health Establishments
+
+To improve Crypto in preparation for its mainstream adoption
+`}
+      </HrucoinWasCreatedWit>
     </ScreenDesktop>
   );
 }
