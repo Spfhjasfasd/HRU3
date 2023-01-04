@@ -13,16 +13,14 @@
  **********************************************************************/
 
 import React from 'react';
-import { Button } from '@mui/material';
-import Quest21Image from 'src/assets/images/Navbar2_Quest2_1.png';
 import HamburgerImage from 'src/assets/images/Navbar2_Hamburger.png';
 import { styled } from '@mui/material/styles';
 import useNavbar2 from 'src/components/Navbar2/useNavbar2';
 
 const ScreenDesktopTypeQue = styled('div', {
   shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
-})(({ theme, data }) => ({
-  backgroundColor: theme.palette['Background']['Paper'],
+})(({ data }) => ({
+  backgroundColor: `rgba(174, 29, 198, 0.33)`,
   display: `flex`,
   position: `relative`,
   isolation: `isolate`,
@@ -47,29 +45,22 @@ const Items = styled('div', {
   padding: `0px`,
   boxSizing: `border-box`,
   alignSelf: `stretch`,
-  width: data.size === 'mobile' ? 'unset' : `1244px`,
+  width: data.size === 'mobile' ? 'unset' : `598px`,
+  backgroundColor: data.size === 'mobile' ? `rgba(174, 29, 198, 0)` : 'unset',
   flexGrow: data.size === 'mobile' ? `1` : 'unset',
   margin: data.size === 'mobile' ? `0px` : 'unset',
 }));
 
-const Frame1 = styled('div')({
+const Frame1 = styled('div', {
+  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
+})(({ data }) => ({
   display: `flex`,
   position: `relative`,
   isolation: `isolate`,
   flexDirection: `column`,
   justifyContent: `flex-start`,
   alignItems: `flex-start`,
-  padding: `0px`,
-  boxSizing: `border-box`,
-});
-
-const Quest21 = styled('img', {
-  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
-})(({ data }) => ({
-  height: data.size === 'mobile' ? `18px` : `23px`,
   width: data.size === 'mobile' ? `74px` : `92px`,
-  objectFit: `contain`,
-  margin: `0px`,
 }));
 
 const MenuStructure = styled('div')({
@@ -84,7 +75,9 @@ const MenuStructure = styled('div')({
   height: `36px`,
 });
 
-const Items1 = styled('div')({
+const Items1 = styled('div', {
+  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
+})(({ data }) => ({
   display: `flex`,
   position: `relative`,
   isolation: `isolate`,
@@ -94,21 +87,16 @@ const Items1 = styled('div')({
   padding: `0px`,
   boxSizing: `border-box`,
   alignSelf: `stretch`,
-  margin: `0px`,
-});
+  margin: data.size === 'mobile' ? `0px 0px 0px 40px` : `0px`,
+}));
 
-const AboutUs = styled('div', {
-  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
-})(({ theme, data }) => ({
+const AboutUs = styled('div')(({ theme }) => ({
   textAlign: `center`,
   whiteSpace: `pre-wrap`,
-  color:
-    data.size === 'mobile'
-      ? `rgba(255, 255, 255, 1)`
-      : theme.palette['Text']['Primary'],
+  color: theme.palette['Text']['Primary'],
   fontStyle: `normal`,
   fontFamily: `Roboto`,
-  fontWeight: data.size === 'mobile' ? `400` : `500`,
+  fontWeight: `500`,
   fontSize: `12px`,
   letterSpacing: `1.2px`,
   textDecoration: `none`,
@@ -116,72 +104,10 @@ const AboutUs = styled('div', {
   margin: `0px`,
 }));
 
-const OurTeam = styled('div', {
-  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
-})(({ theme, data }) => ({
+const OurTeam = styled('div')(({ theme }) => ({
   textAlign: `left`,
   whiteSpace: `pre-wrap`,
-  color:
-    data.size === 'mobile'
-      ? `rgba(255, 255, 255, 1)`
-      : theme.palette['Text']['Primary'],
-  fontStyle: `normal`,
-  fontFamily: `Roboto`,
-  fontWeight: data.size === 'mobile' ? `400` : `500`,
-  fontSize: `12px`,
-  letterSpacing: `1.2px`,
-  textDecoration: `none`,
-  textTransform: `uppercase`,
-  opacity: `0.6000000238418579`,
-  margin: `0px 0px 0px 40px`,
-}));
-
-const Learn = styled('div', {
-  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
-})(({ theme, data }) => ({
-  textAlign: `left`,
-  whiteSpace: `pre-wrap`,
-  color:
-    data.size === 'mobile'
-      ? `rgba(255, 255, 255, 1)`
-      : theme.palette['Text']['Primary'],
-  fontStyle: `normal`,
-  fontFamily: `Roboto`,
-  fontWeight: data.size === 'mobile' ? `400` : `500`,
-  fontSize: `12px`,
-  letterSpacing: `1.2px`,
-  textDecoration: `none`,
-  textTransform: `uppercase`,
-  opacity: `0.6000000238418579`,
-  margin: `0px 0px 0px 40px`,
-}));
-
-const Hamburger = styled('img')({
-  height: `15px`,
-  width: `21px`,
-  margin: `0px 0px 0px 40px`,
-});
-
-const SignUp = styled('div')({
-  display: `flex`,
-  position: `relative`,
-  isolation: `isolate`,
-  flexDirection: `row`,
-  justifyContent: `flex-end`,
-  alignItems: `center`,
-  padding: `0px`,
-  boxSizing: `border-box`,
-});
-
-const LogIn = styled('div', {
-  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
-})(({ theme, data }) => ({
-  textAlign: `left`,
-  whiteSpace: `pre-wrap`,
-  color:
-    data.size === 'mobile'
-      ? `rgba(0, 0, 0, 1)`
-      : theme.palette['Text']['Primary'],
+  color: theme.palette['Text']['Primary'],
   fontStyle: `normal`,
   fontFamily: `Roboto`,
   fontWeight: `500`,
@@ -190,12 +116,73 @@ const LogIn = styled('div', {
   textDecoration: `none`,
   textTransform: `uppercase`,
   opacity: `0.6000000238418579`,
-  margin: `0px`,
+  margin: `0px 0px 0px 40px`,
 }));
 
-const ButtonContained = styled(Button)({
+const Learn = styled('div')(({ theme }) => ({
+  textAlign: `left`,
+  whiteSpace: `pre-wrap`,
+  color: theme.palette['Text']['Primary'],
+  fontStyle: `normal`,
+  fontFamily: `Roboto`,
+  fontWeight: `500`,
+  fontSize: `12px`,
+  letterSpacing: `1.2px`,
+  textDecoration: `none`,
+  textTransform: `uppercase`,
+  opacity: `0.6000000238418579`,
   margin: `0px 0px 0px 40px`,
-});
+}));
+
+const Tokenomics = styled('div')(({ theme }) => ({
+  textAlign: `center`,
+  whiteSpace: `pre-wrap`,
+  color: theme.palette['Text']['Primary'],
+  fontStyle: `normal`,
+  fontFamily: `Roboto`,
+  fontWeight: `500`,
+  fontSize: `12px`,
+  letterSpacing: `1.2px`,
+  textDecoration: `none`,
+  textTransform: `uppercase`,
+  margin: `0px 0px 0px 40px`,
+}));
+
+const Team = styled('div')(({ theme }) => ({
+  textAlign: `center`,
+  whiteSpace: `pre-wrap`,
+  color: theme.palette['Text']['Primary'],
+  fontStyle: `normal`,
+  fontFamily: `Roboto`,
+  fontWeight: `500`,
+  fontSize: `12px`,
+  letterSpacing: `1.2px`,
+  textDecoration: `none`,
+  textTransform: `uppercase`,
+  margin: `0px 0px 0px 40px`,
+}));
+
+const PResale = styled('div')(({ theme }) => ({
+  textAlign: `center`,
+  whiteSpace: `pre-wrap`,
+  color: theme.palette['Text']['Primary'],
+  fontStyle: `normal`,
+  fontFamily: `Roboto`,
+  fontWeight: `500`,
+  fontSize: `12px`,
+  letterSpacing: `1.2px`,
+  textDecoration: `none`,
+  textTransform: `uppercase`,
+  margin: `0px 0px 0px 40px`,
+}));
+
+const Hamburger = styled('img', {
+  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
+})(({ data }) => ({
+  height: `15px`,
+  width: `21px`,
+  margin: data.size === 'mobile' ? `0px` : `0px 0px 0px 40px`,
+}));
 
 function Navbar2(props) {
   const { data } = useNavbar2();
@@ -203,29 +190,27 @@ function Navbar2(props) {
   return (
     <ScreenDesktopTypeQue data={data}>
       <Items data={data}>
-        <Frame1>
-          <Quest21
-            data={data}
-            src={Quest21Image}
-            loading="lazy"
-            alt={'Quest2 1'}
-          />
-        </Frame1>
+        <Frame1 data={data}></Frame1>
         <MenuStructure>
-          <Items1>
-            <AboutUs data={data}>{`about us`}</AboutUs>
-            <OurTeam data={data}>{`our team`}</OurTeam>
-            <Learn data={data}>{`learn`}</Learn>
-          </Items1>
-          <Hamburger src={HamburgerImage} loading="lazy" alt={'Hamburger'} />
+          {!(data.size === 'mobile') && (
+            <Items1 data={data}>
+              <AboutUs>{`about us`}</AboutUs>
+              <OurTeam>{`our team`}</OurTeam>
+              <Learn>{`learn`}</Learn>
+              <Tokenomics>{`TOkenomics`}</Tokenomics>
+              <Team>{`about us`}</Team>
+              <PResale>{`Presale`}</PResale>
+            </Items1>
+          )}
+          {data.size === 'mobile' && (
+            <Hamburger
+              data={data}
+              src={HamburgerImage}
+              loading="lazy"
+              alt={'Hamburger'}
+            />
+          )}
         </MenuStructure>
-        <SignUp>
-          <LogIn data={data}>{`LOG-in`}</LogIn>
-          <ButtonContained variant="contained" size="small" color="secondary">
-            {' '}
-            SIGN-UP{' '}
-          </ButtonContained>
-        </SignUp>
       </Items>
     </ScreenDesktopTypeQue>
   );
