@@ -13,7 +13,7 @@
  **********************************************************************/
 
 import React from 'react';
-import QuestLogoImage from 'src/assets/images/Navbar2_Quest_Logo.png';
+import Image1Image from 'src/assets/images/Navbar2_image_1.png';
 import HamburgerImage from 'src/assets/images/Navbar2_Hamburger.png';
 import { styled } from '@mui/material/styles';
 
@@ -55,9 +55,9 @@ const Frame1 = styled('div')({
   boxSizing: `border-box`,
 });
 
-const QuestLogo = styled('img')({
-  height: `18.5px`,
-  width: `75.34px`,
+const Image1 = styled('img')({
+  height: `40px`,
+  width: `43px`,
   objectFit: `cover`,
   margin: `0px`,
 });
@@ -186,7 +186,7 @@ function Navbar2(props) {
     <ScreenDesktopTypeQue>
       <Items>
         <Frame1>
-          <QuestLogo src={QuestLogoImage} loading="lazy" alt={'Quest Logo'} />
+          <Image1 src={Image1Image} loading="lazy" alt={'image 1'} />
         </Frame1>
         <MenuStructure>
           <Items1>
@@ -195,7 +195,7 @@ function Navbar2(props) {
             <Learn>{`learn`}</Learn>
             <Social>{`social`}</Social>
             <Community>{`community`}</Community>
-            <Presale>{`about us`}</Presale>
+            <Presale>{`presale`}</Presale>
           </Items1>
           {false && (
             <Hamburger src={HamburgerImage} loading="lazy" alt={'Hamburger'} />
