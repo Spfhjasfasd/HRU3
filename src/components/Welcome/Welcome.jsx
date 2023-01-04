@@ -41,6 +41,19 @@ const Navbar21 = styled(Navbar2)(({ theme }) => ({
   top: `0px`,
 }));
 
+const Frame2 = styled('div')({
+  display: `flex`,
+  position: `absolute`,
+  isolation: `isolate`,
+  flexDirection: `row`,
+  justifyContent: `flex-start`,
+  alignItems: `flex-start`,
+  padding: `10px`,
+  boxSizing: `border-box`,
+  left: `544px`,
+  top: `345px`,
+});
+
 const Hrucoin = animated(
   styled('div')({
     textAlign: `left`,
@@ -54,9 +67,8 @@ const Hrucoin = animated(
     textDecoration: `none`,
     lineHeight: `62px`,
     textTransform: `none`,
-    position: `absolute`,
-    left: `554px`,
-    top: `355px`,
+    textShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
+    margin: `0px`,
   })
 );
 
@@ -175,7 +187,9 @@ function Welcome(props) {
   return (
     <ScreenDesktop>
       <Navbar21 />
-      <Hrucoin style={{ ...HrucoinSpring }}>{`HRUCOIN`}</Hrucoin>
+      <Frame2>
+        <Hrucoin style={{ ...HrucoinSpring }}>{`HRUCOIN`}</Hrucoin>
+      </Frame2>
       <OneBlockAtATime
         onClick={() => {
           OneBlockAtATimeApi.start({ ...{ opacity: 0 }, delay: 1250 });
