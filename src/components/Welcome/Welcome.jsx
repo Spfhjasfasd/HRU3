@@ -64,7 +64,7 @@ const Hrucoin = animated(
     fontStyle: `normal`,
     fontFamily: `Azeret Mono`,
     fontWeight: `400`,
-    fontSize: `128px`,
+    fontSize: `200px`,
     letterSpacing: `-6.4px`,
     textDecoration: `none`,
     lineHeight: `62px`,
@@ -89,7 +89,7 @@ const OneBlockAtATime = animated(
     textTransform: `none`,
     position: 'absolute',
     left: '50%',
-    top: '45%',
+    top: '48%',
     transform: 'translate(-50%, -50%)'
   })
 );
@@ -108,7 +108,7 @@ const Label = animated(
     boxSizing: `border-box`,
     position: 'absolute',
     left: '50%',
-    top: '40%',
+    top: '43%',
     transform: 'translate(-50%, -50%)'
   })
 );
@@ -144,7 +144,7 @@ const Label1 = animated(
     whiteSpace: `pre-wrap`,
     color: theme.palette['Primary']['Contrast'],
     fontStyle: `normal`,
-    fontFamily: `Heebo`,
+    fontFamily: `Azeret Mono`,
     fontWeight: `700`,
     fontSize: `29px`,
     letterSpacing: `0px`,
@@ -162,14 +162,14 @@ const HrucoinWasCreatedWit = animated(
     fontStyle: `normal`,
     fontFamily: `Azeret Mono`,
     fontWeight: `700`,
-    fontSize: `23px`,
+    fontSize: `36px`,
     letterSpacing: `-0.69px`,
     textDecoration: `none`,
     lineHeight: `92.00000166893005%`,
     textTransform: `none`,
     position: 'absolute',
     left: '41%',
-    top: '58%',
+    top: '68%',
     transform: 'translate(-50%, -50%)'
   })
 );
