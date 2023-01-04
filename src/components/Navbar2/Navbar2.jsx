@@ -13,10 +13,11 @@
  **********************************************************************/
 
 import React from 'react';
+import QuestLogoImage from 'src/assets/images/Navbar2_Quest_Logo.png';
 import HamburgerImage from 'src/assets/images/Navbar2_Hamburger.png';
 import { styled } from '@mui/material/styles';
 
-const ScreenNavbar1TypeDes = styled('div')({
+const ScreenDesktopTypeQue = styled('div')({
   backgroundColor: `rgba(0, 0, 0, 1)`,
   display: `flex`,
   position: `relative`,
@@ -40,6 +41,24 @@ const Items = styled('div')({
   padding: `0px`,
   boxSizing: `border-box`,
   flexGrow: `1`,
+  margin: `0px`,
+});
+
+const Frame1 = styled('div')({
+  display: `flex`,
+  position: `relative`,
+  isolation: `isolate`,
+  flexDirection: `column`,
+  justifyContent: `flex-start`,
+  alignItems: `flex-start`,
+  padding: `0px`,
+  boxSizing: `border-box`,
+});
+
+const QuestLogo = styled('img')({
+  height: `18.5px`,
+  width: `75.34px`,
+  objectFit: `cover`,
   margin: `0px`,
 });
 
@@ -150,8 +169,11 @@ const Hamburger = styled('img')({
 
 function Navbar2(props) {
   return (
-    <ScreenNavbar1TypeDes>
+    <ScreenDesktopTypeQue>
       <Items>
+        <Frame1>
+          <QuestLogo src={QuestLogoImage} loading="lazy" alt={'Quest Logo'} />
+        </Frame1>
         <MenuStructure>
           <Items1>
             <AboutUs>{`about us`}</AboutUs>
@@ -165,7 +187,7 @@ function Navbar2(props) {
           )}
         </MenuStructure>
       </Items>
-    </ScreenNavbar1TypeDes>
+    </ScreenDesktopTypeQue>
   );
 }
 
