@@ -16,9 +16,15 @@ import React from 'react';
 import { styled } from '@mui/material/styles';
 import Navbar2 from 'src/components/Navbar2/Navbar2';
 import { animated, useSpring, easings } from 'react-spring';
+import useWelcome from 'src/components/Welcome/useWelcome';
 
-const ScreenDesktop = styled('div')({
-  background: `linear-gradient(180deg, rgba(213, 15, 217, 1) -3.0616171314629196e-15%, rgba(213, 15, 217, 0) 99.99999999999999%)`,
+const ScreenDesktop = styled('div', {
+  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
+})(({ data }) => ({
+  background:
+    data.type == 'mobile'
+      ? `linear-gradient(180deg, rgba(191, 38, 158, 1) -3.0616171314629196e-15%, rgba(191, 38, 158, 0) 99.99999999999999%)`
+      : `linear-gradient(180deg, rgba(213, 15, 217, 1) -3.0616171314629196e-15%, rgba(213, 15, 217, 0) 99.99999999999999%)`,
   boxShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
   display: `flex`,
   position: `relative`,
@@ -31,16 +37,20 @@ const ScreenDesktop = styled('div')({
   padding: `0px`,
   boxSizing: `border-box`,
   overflow: `hidden`,
-});
+}));
 
-const Navbar21 = styled(Navbar2)(({ theme }) => ({
-  width: `1440px`,
+const Navbar21 = styled(Navbar2, {
+  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
+})(({ theme, data }) => ({
+  width: data.type == 'mobile' ? `390px` : `1440px`,
   position: `absolute`,
   left: `0px`,
   top: `0px`,
 }));
 
-const Frame2 = styled('div')({
+const Frame2 = styled('div', {
+  shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
+})(({ data }) => ({
   display: `flex`,
   position: `absolute`,
   isolation: `isolate`,
@@ -49,35 +59,39 @@ const Frame2 = styled('div')({
   alignItems: `flex-start`,
   padding: `10px`,
   boxSizing: `border-box`,
-  left: `449px`,
-  top: `312px`,
-});
+  left: data.type == 'mobile' ? `19px` : `449px`,
+  top: data.type == 'mobile' ? `64px` : `312px`,
+}));
 
 const Hrucoin = animated(
-  styled('div')({
+  styled('div', {
+    shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
+  })(({ data }) => ({
     textAlign: `left`,
     whiteSpace: `pre-wrap`,
     color: `rgba(0, 0, 0, 1)`,
     fontStyle: `normal`,
-    fontFamily: `Azeret Mono`,
+    fontFamily: data.type == 'mobile' ? `Anek Gujarati` : `Azeret Mono`,
     fontWeight: `400`,
-    fontSize: `128px`,
-    letterSpacing: `-6.4px`,
+    fontSize: data.type == 'mobile' ? `96px` : `128px`,
+    letterSpacing: data.type == 'mobile' ? `-4.8px` : `-6.4px`,
     textDecoration: `none`,
     lineHeight: `62px`,
     textTransform: `none`,
     textShadow: `0px 4px 4px rgba(0, 0, 0, 0.25)`,
     margin: `0px`,
-  })
+  }))
 );
 
 const OneBlockAtATime = animated(
-  styled('div')({
+  styled('div', {
+    shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
+  })(({ data }) => ({
     textAlign: `left`,
     whiteSpace: `pre-wrap`,
     color: `rgba(0, 0, 0, 1)`,
     fontStyle: `normal`,
-    fontFamily: `Azeret Mono`,
+    fontFamily: data.type == 'mobile' ? `Anek Gujarati` : `Azeret Mono`,
     fontWeight: `400`,
     fontSize: `24px`,
     letterSpacing: `-1.2px`,
@@ -85,14 +99,19 @@ const OneBlockAtATime = animated(
     lineHeight: `62px`,
     textTransform: `none`,
     position: `absolute`,
-    left: `594px`,
-    top: `501px`,
-  })
+    left: data.type == 'mobile' ? `110px` : `594px`,
+    top: data.type == 'mobile' ? `262px` : `501px`,
+  }))
 );
 
 const Label = animated(
-  styled('div')({
-    background: `linear-gradient(90deg, rgba(123, 97, 255, 1) 27.623125519427568%, rgba(254, 136, 136, 1) 89.61456174389363%)`,
+  styled('div', {
+    shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
+  })(({ data }) => ({
+    background:
+      data.type == 'mobile'
+        ? `linear-gradient(90deg, rgba(123, 97, 255, 1) 27.62312551942739%, rgba(254, 136, 136, 1) 89.61456174389343%)`
+        : `linear-gradient(90deg, rgba(123, 97, 255, 1) 27.623125519427568%, rgba(254, 136, 136, 1) 89.61456174389363%)`,
     borderRadius: `50px`,
     display: `flex`,
     position: `absolute`,
@@ -102,9 +121,11 @@ const Label = animated(
     alignItems: `center`,
     padding: `20px`,
     boxSizing: `border-box`,
-    left: `554px`,
-    top: `429px`,
-  })
+    left: data.type == 'mobile' ? `51px` : `554px`,
+    top: data.type == 'mobile' ? `174px` : `429px`,
+    width: data.type == 'mobile' ? `288px` : 'unset',
+    height: data.type == 'mobile' ? `51px` : 'unset',
+  }))
 );
 
 const Frame1 = styled('div')({
@@ -133,14 +154,16 @@ const Text = styled('div')({
 });
 
 const Label1 = animated(
-  styled('div')(({ theme }) => ({
+  styled('div', {
+    shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
+  })(({ theme, data }) => ({
     textAlign: `center`,
     whiteSpace: `pre-wrap`,
     color: theme.palette['Primary']['Contrast'],
     fontStyle: `normal`,
     fontFamily: `Heebo`,
     fontWeight: `700`,
-    fontSize: `29px`,
+    fontSize: data.type == 'mobile' ? `20px` : `29px`,
     letterSpacing: `0px`,
     textDecoration: `none`,
     textTransform: `none`,
@@ -149,7 +172,9 @@ const Label1 = animated(
 );
 
 const HrucoinWasCreatedWit = animated(
-  styled('div')({
+  styled('div', {
+    shouldForwardProp: (prop) => !['data'].includes(prop.toString()),
+  })(({ data }) => ({
     textAlign: `left`,
     whiteSpace: `pre-wrap`,
     color: `rgba(0, 0, 0, 1)`,
@@ -161,15 +186,17 @@ const HrucoinWasCreatedWit = animated(
     textDecoration: `none`,
     lineHeight: `92.00000166893005%`,
     textTransform: `none`,
-    width: `1038px`,
-    height: `185px`,
+    width: data.type == 'mobile' ? `297px` : `1038px`,
+    height: data.type == 'mobile' ? `53px` : `185px`,
     position: `absolute`,
-    left: `190px`,
-    top: `593px`,
-  })
+    left: data.type == 'mobile' ? `61px` : `190px`,
+    top: data.type == 'mobile' ? `361px` : `593px`,
+  }))
 );
 
 function Welcome(props) {
+  const { data } = useWelcome();
+
   const [HrucoinSpring, HrucoinApi] = useSpring(() => ({
     config: {
       duration: 1500,
@@ -242,24 +269,29 @@ function Welcome(props) {
   }, []);
 
   return (
-    <ScreenDesktop>
-      <Navbar21 />
-      <Frame2>
-        <Hrucoin style={{ ...HrucoinSpring }}>{`HRUCOIN`}</Hrucoin>
+    <ScreenDesktop data={data}>
+      <Navbar21 data={data} />
+      <Frame2 data={data}>
+        <Hrucoin data={data} style={{ ...HrucoinSpring }}>
+          {`HRUCOIN`}
+        </Hrucoin>
       </Frame2>
-      <OneBlockAtATime style={{ ...OneBlockAtATimeSpring }}>
+      <OneBlockAtATime data={data} style={{ ...OneBlockAtATimeSpring }}>
         {`One block at a time`}
       </OneBlockAtATime>
-      <Label style={{ ...LabelSpring }}>
+      <Label data={data} style={{ ...LabelSpring }}>
         <Frame1>
           <Text>
-            <Label1 style={{ ...Label1Spring }}>
+            <Label1 data={data} style={{ ...Label1Spring }}>
               {`Innovating Defi Health.`}
             </Label1>
           </Text>
         </Frame1>
       </Label>
-      <HrucoinWasCreatedWit style={{ ...HrucoinWasCreatedWitSpring }}>
+      <HrucoinWasCreatedWit
+        data={data}
+        style={{ ...HrucoinWasCreatedWitSpring }}
+      >
         {`HRUCOIN Was Created With 3 Core Values...
 
 To Improve Mental Health in the Crypto Space
