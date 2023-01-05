@@ -35,7 +35,6 @@ const ScreenDesktop = styled('div')({
 
 const Navbar21 = styled(Navbar2)(({ theme }) => ({
   width: `1440px`,
-  height: `60px`,
   position: `absolute`,
   left: `0px`,
   top: `0px`,
@@ -50,10 +49,8 @@ const Frame2 = styled('div')({
   alignItems: `flex-start`,
   padding: `10px`,
   boxSizing: `border-box`,
-  position: 'absolute',
-  left: '50%',
-  top: '29%',
-  transform: 'translate(-50%, -50%)'
+  left: `449px`,
+  top: `312px`,
 });
 
 const Hrucoin = animated(
@@ -64,7 +61,7 @@ const Hrucoin = animated(
     fontStyle: `normal`,
     fontFamily: `Azeret Mono`,
     fontWeight: `400`,
-    fontSize: `200px`,
+    fontSize: `128px`,
     letterSpacing: `-6.4px`,
     textDecoration: `none`,
     lineHeight: `62px`,
@@ -87,10 +84,9 @@ const OneBlockAtATime = animated(
     textDecoration: `none`,
     lineHeight: `62px`,
     textTransform: `none`,
-    position: 'absolute',
-    left: '50%',
-    top: '48%',
-    transform: 'translate(-50%, -50%)'
+    position: `absolute`,
+    left: `594px`,
+    top: `501px`,
   })
 );
 
@@ -106,10 +102,8 @@ const Label = animated(
     alignItems: `center`,
     padding: `20px`,
     boxSizing: `border-box`,
-    position: 'absolute',
-    left: '50%',
-    top: '43%',
-    transform: 'translate(-50%, -50%)'
+    left: `554px`,
+    top: `429px`,
   })
 );
 
@@ -144,7 +138,7 @@ const Label1 = animated(
     whiteSpace: `pre-wrap`,
     color: theme.palette['Primary']['Contrast'],
     fontStyle: `normal`,
-    fontFamily: `Azeret Mono`,
+    fontFamily: `Heebo`,
     fontWeight: `700`,
     fontSize: `29px`,
     letterSpacing: `0px`,
@@ -162,15 +156,16 @@ const HrucoinWasCreatedWit = animated(
     fontStyle: `normal`,
     fontFamily: `Azeret Mono`,
     fontWeight: `700`,
-    fontSize: `36px`,
+    fontSize: `23px`,
     letterSpacing: `-0.69px`,
     textDecoration: `none`,
     lineHeight: `92.00000166893005%`,
     textTransform: `none`,
-    position: 'absolute',
-    left: '41%',
-    top: '68%',
-    transform: 'translate(-50%, -50%)'
+    width: `1038px`,
+    height: `185px`,
+    position: `absolute`,
+    left: `190px`,
+    top: `593px`,
   })
 );
 
